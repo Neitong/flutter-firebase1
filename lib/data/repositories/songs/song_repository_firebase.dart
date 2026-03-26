@@ -24,7 +24,8 @@ class SongRepositoryFirebase extends SongRepository {
       for (var song in songJson.entries) {
         songs.add(
           SongDto.fromJson(
-            Map<String, dynamic>.from(song.value),
+            id: song.key,
+            json: Map<String, dynamic>.from(song.value),
           )
         );
       }
