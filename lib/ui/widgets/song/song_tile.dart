@@ -6,11 +6,13 @@ class SongTile extends StatelessWidget {
   const SongTile({
     super.key,
     required this.song,
+    required this.subtitle,
     required this.isPlaying,
     required this.onTap,
   });
 
   final Song song;
+  final String subtitle;
   final bool isPlaying;
   final VoidCallback onTap;
 
@@ -29,6 +31,7 @@ class SongTile extends StatelessWidget {
             backgroundImage: NetworkImage(song.imageUri.toString()),
           ),
           title: Text(song.title),
+          subtitle: Text(subtitle),
           trailing: Text(
             isPlaying ? "Playing" : "",
             style: TextStyle(color: Colors.amber),

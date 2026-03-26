@@ -13,6 +13,11 @@ class ArtistRepositoryFirebase extends ArtistRepository {
     '/artists.json',
   );
 
+  Uri _artistByIdUri(String id) => Uri.https(
+    'week-8-practice-97b3a-default-rtdb.asia-southeast1.firebasedatabase.app',
+    '/artists/$id.json',
+  );
+
   @override
   Future<List<Artist>> fetchArtists() async {
     final http.Response response = await http.get(artistsUri);
@@ -38,5 +43,21 @@ class ArtistRepositoryFirebase extends ArtistRepository {
   }
 
   @override
-  Future<Artist?> fetchArtistById(String id) async {}
+  Future<Artist?> fetchArtistById(String id) async {
+    final http.Response response = await http.get(_artistByIdUri(id));
+
+    if (response.statusCode == 200) {
+      final dynamic decoded = json.decode(response.body);
+      if (decoded == null) {
+        return null;
+      }
+
+      return ArtistDto.fromJson(
+        id: id,
+        json: Map<String, dynamic>.from(decoded),
+      );
+    }
+
+    throw Exception('Failed to load artist with id $id');
+  }
 }
