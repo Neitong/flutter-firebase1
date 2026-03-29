@@ -7,13 +7,19 @@ class SongTile extends StatelessWidget {
     super.key,
     required this.song,
     required this.subtitle,
+    required this.favorite,
     required this.isPlaying,
+    required this.isLiked,
+    required this.onFavorite,
     required this.onTap,
   });
 
   final Song song;
   final String subtitle;
+  final int favorite;
   final bool isPlaying;
+  final bool isLiked;
+  final VoidCallback onFavorite;
   final VoidCallback onTap;
 
   @override
@@ -32,10 +38,25 @@ class SongTile extends StatelessWidget {
           ),
           title: Text(song.title),
           subtitle: Text(subtitle),
-          trailing: Text(
-            isPlaying ? "Playing" : "",
-            style: TextStyle(color: Colors.amber),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '$favorite',
+                style: TextStyle(color: Colors.blueGrey),
+              ),
+              SizedBox(width: 6),
+              IconButton(
+                onPressed: onFavorite,
+                icon: Icon(
+                  isLiked ? Icons.favorite : Icons.favorite_border,
+                  color: isLiked ? Colors.red : Colors.blueGrey,
+                ),
+              ),
+            ],
           ),
+          selected: isPlaying,
+          selectedTileColor: Colors.amber.withValues(alpha: 0.08),
         ),
       ),
     );
