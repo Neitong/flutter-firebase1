@@ -31,43 +31,86 @@
       "title": "Time to Rise for Ronan",
       "duration": 210000,
       "artistId": "artist_1",
+      "likes": 1200,
       "imageUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745"
     },
     "song_2": {
       "title": "Khmer & Ronan Bloods",
       "duration": 185000,
       "artistId": "artist_1",
+      "likes": 950,
       "imageUrl": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a"
     },
     "song_3": {
       "title": "Besdong Online with Ronan",
       "duration": 200000,
       "artistId": "artist_2",
+      "likes": 800,
       "imageUrl": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4"
     },
     "song_4": {
       "title": "Silent Love and Ronan",
       "duration": 230000,
       "artistId": "artist_2",
+      "likes": 1100,
       "imageUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f"
     },
     "song_5": {
       "title": "Ronan Life Cycle",
       "duration": 240000,
       "artistId": "artist_3",
+      "likes": 1000,
       "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
     },
     "song_6": {
       "title": "Chnam Oun",
       "duration": 215000,
       "artistId": "artist_4",
+      "likes": 850,
       "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9"
     },
     "song_7": {
       "title": "City Lights Phnom Penh and Ronan",
       "duration": 195000,
       "artistId": "artist_5",
+      "likes": 900,
       "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    }
+  },
+  "artist_comments": {
+    "artist_1": {
+      "comment_1": {
+        "message": "Love the energy and lyrics.",
+        "createdAt": "2026-03-28T09:10:00Z"
+      },
+      "comment_2": {
+        "message": "The new track is on repeat!",
+        "createdAt": "2026-03-29T14:45:00Z"
+      }
+    },
+    "artist_2": {
+      "comment_1": {
+        "message": "Beautiful voice and melody.",
+        "createdAt": "2026-03-27T11:25:00Z"
+      }
+    },
+    "artist_3": {
+      "comment_1": {
+        "message": "Great stage performance.",
+        "createdAt": "2026-03-26T08:05:00Z"
+      }
+    },
+    "artist_4": {
+      "comment_1": {
+        "message": "I like the style and vibe.",
+        "createdAt": "2026-03-30T06:30:00Z"
+      }
+    },
+    "artist_5": {
+      "comment_1": {
+        "message": "Very unique indie sound.",
+        "createdAt": "2026-03-25T16:40:00Z"
+      }
     }
   }
 }

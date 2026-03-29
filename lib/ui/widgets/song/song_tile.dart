@@ -10,8 +10,8 @@ class SongTile extends StatelessWidget {
     required this.song,
     required this.subtitle,
     required this.likeCount,
-    required this.isLiked,
-    required this.onFavorite,
+    this.isLiked,
+    this.onFavorite,
     required this.isPlaying,
     required this.onTap,
   });
@@ -19,17 +19,19 @@ class SongTile extends StatelessWidget {
   final Song song;
   final String subtitle;
   final int likeCount;
-  final bool isLiked;
-  final VoidCallback onFavorite;
+  final bool? isLiked;
+  final VoidCallback? onFavorite;
   final bool isPlaying;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    
+
     // Read the global state to get the theme color for the like button
     final settingsState = context.watch<AppSettingsState>();
     final Color themeColor = settingsState.theme.color;
+    
+    final bool showFavorite = onFavorite != null && isLiked != null;
 
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -45,15 +47,17 @@ class SongTile extends StatelessWidget {
           ),
           title: Text(song.title),
           subtitle: Text('$subtitle  ·  $likeCount likes'),
-          trailing: IconButton(
-            onPressed: onFavorite,
-            icon: Icon(
-              isLiked ? Icons.favorite : Icons.favorite_border,
-              color: isLiked
-                  ? themeColor
-                  : themeColor.withValues(alpha: 0.6),
-            ),
-          ),
+          trailing: showFavorite
+              ? IconButton(
+                  onPressed: onFavorite,
+                  icon: Icon(
+                    isLiked! ? Icons.favorite : Icons.favorite_border,
+                    color: isLiked!
+                        ? themeColor
+                        : themeColor.withValues(alpha: 0.6),
+                  ),
+                )
+              : null,
           selected: isPlaying,
           selectedTileColor: Colors.amber.withValues(alpha: 0.08),
         ),
